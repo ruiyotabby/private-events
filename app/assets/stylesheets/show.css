@@ -1,0 +1,45 @@
+.body > *{
+  margin-left: 20px;
+}
+
+.date{
+  color: #39364f;
+}
+
+.body > h1{
+  margin-top: 6px;
+}
+
+.user > span{
+  font-size: 700;
+  font-weight: 600;
+}
+
+.user{
+  background-color: #f8f7fa;
+  height: 50px;
+  text-align:left;
+  padding-top: 30px;
+  padding-left: 50px;
+}
+
+p{
+  font-weight: 600;
+}
+
+.date-location{
+  display: flex;
+  gap: 20px;
+}
+
+.body > p {
+  margin-bottom: 0;
+}
+
+.location{
+  color: black;
+}
+
+.location, .datetime > span{
+  color: #39364f;
+}
