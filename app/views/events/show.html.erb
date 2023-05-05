@@ -1,0 +1,22 @@
+<%= render 'events/shared/header' %>
+<%= stylesheet_link_tag 'show.css' %>
+
+<% comm = @event.date.to_fs(:long).index(',') %>
+<div class="body">
+  <div class='date'><%= @event.date.to_fs(:long)[...comm] %></div>
+  <h1><%= @event.name %></h1>
+  <div class='user'>By <span><%= @event.creator.username.upcase %></span></div>
+  <p>When and Where</p>
+  <div class="date-location">
+    <div class='datetime'>
+      <p>Date and time</p>
+      <span><%= @event.date.to_fs(:long) %></span>
+    </div>
+    <div class='hr'></div>
+    <div class='location'>
+      <p>Location</p>
+      <span><%= @event.location %></span>
+    </div>
+  </div>
+  <h3>About this event</h3>
+</div>
