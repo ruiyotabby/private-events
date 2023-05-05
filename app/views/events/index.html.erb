@@ -1,21 +1,13 @@
-<%= stylesheet_link_tag "index.css" %>
-<header>
-  <h3> <%= link_to 'Events', root_path %> </h3>
-  <div class="header">
-    <%= link_to "Create an event", new_event_path %>
-    <% unless user_signed_in? %>
-      <%= link_to "Sign in", new_user_session_path %>
-      <%= link_to "Sign up", new_user_registration_path %>
-    <% else %>
-      <%= link_to "Sign out", destroy_user_session_path %>
-    <% end %>
-  </div>
-</header>
-<ul>
+<%= render 'events/shared/header' %>
+
+<div class="wrapper">
   <% @events.each do |event| %>
-  <li><%= event.name %></li>
-  <li><%= event.date %></li>
-  <li><%= event.location %></li>
-  <li><%= event.creator.username %></li>
+    <div class='event'>
+      <div class='name'><%= event.name %></div>
+      <% comm = event.date.to_fs(:long).index(',') %>
+      <div class='date'><%= event.date.to_fs(:long) %></div>
+      <div class='location'><%= event.location %></div>
+      <div class='username'><%= event.creator.username %></div>
+    </div>
   <% end %>
-</ul>
+</div>
