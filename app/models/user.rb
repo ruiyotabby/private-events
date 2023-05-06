@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: true, presence: true
   has_many :events, class_name: "Event", foreign_key: "creator_id"
+  has_many :attended_events, through: :tickets
 end
