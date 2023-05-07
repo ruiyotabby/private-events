@@ -38,4 +38,10 @@
       <%= button_to 'Get Ticket', event_tickets_path(@event), method: :post %>
     <% end %>
   </div>
+  <div class='buttons'>
+    <% if @event.creator == current_user %>
+      <%= button_to 'Edit Event', edit_event_path, method: :get %>
+      <%= button_to 'Delete Event', event_path(@event), data_turbo_method: :delete, data_turbo_confirm: 'Are you sure?' %>
+    <% end %>
+  </div>
 </div>
