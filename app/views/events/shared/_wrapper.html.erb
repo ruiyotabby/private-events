@@ -1,0 +1,7 @@
+<div class='event'>
+  <div class='name'><%= link_to event.name , event_path(event.id) %></div>
+  <% comm = event.date.to_fs(:long).index(',') %>
+  <div class='date'><%= event.date.to_fs(:long) %></div>
+  <div class='location'><%= event.location %></div>
+  <div class='username'><%= event.creator.username %></div>
+</div>
