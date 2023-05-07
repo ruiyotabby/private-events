@@ -1,6 +1,25 @@
-<ul><% @events.each do |event|%>
-  <li> <%= event.name %> </li>
-  <li> <%= event.location %> </li>
-  <li> <%= event.date %> </li>
-  <% end %>
-</ul>
+<%= render 'events/shared/header' %>
+
+<h3>Events created</h3>
+ <div class="wrapper">
+ <% @events.includes(:creator).each do |event|%>
+  <%= render 'events/shared/wrapper', event: event %>
+<% end %>
+</div>
+
+
+<h3>Events to attend/attended</h3>
+<h4> Future events </h4>
+<% future_events = current_user.attended_events.where('date > ?', Date.today) %>
+<div class="wrapper">
+ <% future_events.includes(:creator).each do |event|%>
+  <%= render 'events/shared/wrapper', event: event %>
+<% end %>
+</div>
+<h4> Past events </h4>
+<% past_events = current_user.attended_events.where('date < ?', Date.today) %>
+ <div class="wrapper">
+ <% past_events.includes(:creator).each do |event|%>
+  <%= render 'events/shared/wrapper', event: event %>
+<% end %>
+</div>
