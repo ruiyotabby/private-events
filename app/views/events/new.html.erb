@@ -1,11 +1,2 @@
 <%= render 'events/shared/header' %>
-
-<%= form_with model: @event do |form| %>
-  <%= form.label :name, 'Name of event' %><br>
-  <%= form.text_field :name %><br>
-  <%= form.label :location, 'Location of the event' %><br>
-  <%= form.text_field :location %><br>
-  <%= form.label :date, 'Date of the event' %><br>
-  <%= form.datetime_select :date %><br>
-  <%= form.submit 'Create event' %>
-<% end %>
+<%= render 'events/shared/form', event: @event %>
