@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    @events = Event.includes(:creator).where('creator_id = ?', current_user.id)
   end
 end
