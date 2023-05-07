@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :username, uniqueness: true, presence: true
-  has_many :events, class_name: "Event", foreign_key: "creator_id"
-  has_many :attended_events, through: :tickets
+  has_many :events, class_name: "Event", foreign_key: "creator_id", dependent: :destroy
+  has_many :tickets, foreign_key: 'attendee_id', dependent: :destroy
+  has_many :attended_events, through: :tickets, source: :attended_event, dependent: :destroy
 end
