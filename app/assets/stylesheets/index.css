@@ -27,6 +27,9 @@ header{
   height: 3.4rem;
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: white;
 }
 
 .header{
@@ -64,6 +67,10 @@ h3 > a {
 
 .event:hover{
   box-shadow: 1px 5px 7px 0 #dedddd;
+}
+
+.event a{
+  color: #39364f;
 }
 
 .name{

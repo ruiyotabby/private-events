@@ -1,5 +1,6 @@
 .body > *{
   margin-left: 20px;
+  /* display: unset; */
 }
 
 .date{
@@ -21,9 +22,10 @@
   text-align:left;
   padding-top: 30px;
   padding-left: 50px;
+  width: 50%;
 }
 
-p{
+.body p{
   font-weight: 600;
 }
 
@@ -32,8 +34,17 @@ p{
   gap: 20px;
 }
 
-.body > p {
+.body p {
   margin-bottom: 0;
+}
+
+.body{
+  display: grid;
+  grid-template-columns: 2fr 1fr 0fr;
+}
+
+.body > :first-child{
+  padding-left: 100px;
 }
 
 .location{
@@ -42,4 +53,48 @@ p{
 
 .location, .datetime > span{
   color: #39364f;
+}
+
+.ticket button{
+  background-color: #d1410c;
+  color: wheat;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.ticket form{
+  margin-top: 20px;
+}
+
+.attendees > p{
+  /* color: #39364f; */
+  font-weight: normal;
+}
+
+.buttons{
+  display: flex;
+  gap: 10px;
+  padding-right: 20px;
+}
+
+.buttons button{
+  border: none;
+  border-radius: 5px;
+  /* margin-right: 20px; */
+  width: 8rem;
+  height: 2rem;
+}
+
+.buttons :nth-child(1) button{
+  background-color: rgb(18, 182, 237);
+}
+
+.buttons :nth-child(2) button{
+  background-color: #e82c0f;
+  color: wheat;
 }
