@@ -34,9 +34,9 @@ class EventsController < ApplicationController
     end
   end
 
-  def destory
+  def destroy
     @event = Event.find(params[:id])
-    @event.destory
+    @event.destroy
 
     redirect_to root_path, status: :see_other, notice: 'Event sucessfully deleted.'
   end
