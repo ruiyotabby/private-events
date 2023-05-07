@@ -31,5 +31,11 @@
       <% end %>
     </div>
   </div>
-  
+  <div class="ticket">
+    <% if current_user.attended_events.include? @event %>
+      <%= button_to 'Cancel Ticket', event_tickets_url(@event), method: :delete %>
+    <% else %>
+      <%= button_to 'Get Ticket', event_tickets_path(@event), method: :post %>
+    <% end %>
+  </div>
 </div>
