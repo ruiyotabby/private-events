@@ -1,13 +1,14 @@
 <%= render 'events/shared/header' %>
 
+<h3>Future Events</h3>
 <div class="wrapper">
-  <% @events.each do |event| %>
-    <div class='event'>
-      <div class='name'><%= event.name %></div>
-      <% comm = event.date.to_fs(:long).index(',') %>
-      <div class='date'><%= event.date.to_fs(:long) %></div>
-      <div class='location'><%= event.location %></div>
-      <div class='username'><%= event.creator.username %></div>
-    </div>
+  <% @events.includes(:creator).future.each do |event| %>
+    <%= render 'events/shared/wrapper', event: event %>
+  <% end %>
+</div>
+<h3>Past Events</h3>
+<div class="wrapper">
+  <% @events.includes(:creator).past.each do |event| %>
+    <%= render 'events/shared/wrapper', event: event %>
   <% end %>
 </div>
