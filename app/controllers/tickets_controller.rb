@@ -12,6 +12,8 @@ class TicketsController < ApplicationController
 
   def destroy
     event = Event.find(params[:event_id])
-    event.tickets.destroy.find_by(attendee: current_user)
+    current_user.attended_events.delete(event)
+
+    redirect_to event, notice: 'Successfully cancelled from the event.'
   end
 end
