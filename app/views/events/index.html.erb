@@ -1,12 +1,18 @@
 <%= render 'events/shared/header' %>
 
 <h3>Future Events</h3>
+<% if @events.includes(:creator).future.empty? %>
+<p>No future events at the moment</p>
+<% end %>
 <div class="wrapper">
   <% @events.includes(:creator).future.each do |event| %>
     <%= render 'events/shared/wrapper', event: event %>
   <% end %>
 </div>
 <h3>Past Events</h3>
+<% if @events.includes(:creator).past.empty? %>
+<p>No past events at the moment</p>
+<% end %>
 <div class="wrapper">
   <% @events.includes(:creator).past.each do |event| %>
     <%= render 'events/shared/wrapper', event: event %>
