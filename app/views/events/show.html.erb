@@ -32,11 +32,13 @@
     </div>
   </div>
   <div class="ticket">
+  <% if user_signed_in? %>
     <% if current_user.attended_events.include? @event %>
       <%= button_to 'Cancel Ticket', event_ticket_path(@event), method: :delete, data: { turbo: false, turbo_confirm: 'Are you sure?' } %>
     <% else %>
       <%= button_to 'Get Ticket', event_tickets_path(@event), method: :post %>
     <% end %>
+  <% end %>
   </div>
   <div class='buttons'>
     <% if @event.creator == current_user %>
